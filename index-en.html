@@ -652,13 +652,17 @@
           </div>
         </div>
       </div>
-      <form id="upitForma">
+      <form id="upitForma" action="https://formsubmit.co/office@marijanababic.com" method="POST">
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://www.babic-law.com/index-en.html?poslano=1#kontakt" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
         <div class="polja-red">
-          <input type="text" id="ime" placeholder="Full name" required />
-          <input type="email" id="email" placeholder="Your e-mail address" required />
+          <input type="text" name="Full name" id="ime" placeholder="Full name" required />
+          <input type="email" name="E-mail" id="email" placeholder="Your e-mail address" required />
         </div>
-        <input type="text" id="predmet" placeholder="Subject" />
-        <textarea id="poruka" placeholder="Describe your legal problem or inquiry" required></textarea>
+        <input type="text" name="_subject" id="predmet" placeholder="Subject" />
+        <textarea name="Message" id="poruka" placeholder="Describe your legal problem or inquiry" required></textarea>
         <button type="submit" class="btn btn-puni">Send inquiry</button>
       </form>
     </div>
@@ -688,15 +692,13 @@
   burger.addEventListener('click', () => nav.classList.toggle('otvoren'));
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('otvoren')));
 
-  document.getElementById('upitForma').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const ime = document.getElementById('ime').value;
-    const email = document.getElementById('email').value;
-    const predmet = document.getElementById('predmet').value || 'Website inquiry';
-    const poruka = document.getElementById('poruka').value;
-    const tijelo = encodeURIComponent(poruka + '\n\n— ' + ime + ' (' + email + ')');
-    window.location.href = 'mailto:office@marijanababic.com?subject=' + encodeURIComponent(predmet) + '&body=' + tijelo;
-  });
+  if (new URLSearchParams(location.search).has('poslano')) {
+    const forma = document.getElementById('upitForma');
+    const poruka = document.createElement('div');
+    poruka.style.cssText = 'background: rgba(194,162,92,0.15); border: 1px solid var(--zlatna); color: #fff; padding: 1rem 1.2rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.92rem;';
+    poruka.textContent = '✓ Thank you for your inquiry! We will respond as soon as possible.';
+    forma.parentNode.insertBefore(poruka, forma);
+  }
 </script>
 
 </body>
