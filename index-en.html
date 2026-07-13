@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Law Office Babić | Zagreb — Corporate Law, M&A, Restructuring</title>
+  <meta name="description" content="Law Office Babić, Zagreb, Croatia. Company law, banking and finance, bankruptcy and restructuring, energy law, IT and startup companies. Marijana Babić — Attorney-at-Law and licensed Insolvency Trustee." />
+  <link rel="icon" type="image/png" href="slike/babic-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1d3a5f;
+      --navy-dark: #142a46;
+      --navy-soft: #eef2f8;
+      --zlatna: #c2a25c;
+      --tekst: #22303f;
+      --siva: #64748b;
+      --svjetlo: #f7f9fc;
+      --bijela: #ffffff;
+      --border: #dde5ef;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bijela);
+      color: var(--tekst);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ---------- NAV ---------- */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(20, 42, 70, 0.92);
+      backdrop-filter: blur(10px);
+      transition: background 0.3s;
+    }
+
+    .nav-inner {
+      max-width: 1180px; margin: 0 auto; padding: 0.65rem 2rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+
+    .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .brand img { width: 44px; height: 44px; background: #fff; border-radius: 50%; padding: 2px; }
+    .brand-text { color: #fff; }
+    .brand-text .naziv { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.2; }
+    .brand-text .pod { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+
+    .nav-desno { display: flex; align-items: center; gap: 1.5rem; }
+
+    nav.glavni { display: flex; gap: 1.4rem; }
+    nav.glavni a {
+      color: rgba(255,255,255,0.82); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.03em;
+      padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: all 0.2s;
+    }
+    nav.glavni a:hover { color: #fff; border-bottom-color: var(--zlatna); }
+
+    .lang { display: flex; gap: 0.35rem; }
+    .lang a {
+      color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.72rem;
+      font-weight: 600; letter-spacing: 0.1em; padding: 0.25rem 0.5rem;
+      border: 1px solid transparent; border-radius: 4px; transition: all 0.2s;
+    }
+    .lang a.active { color: #fff; border-color: rgba(255,255,255,0.45); }
+    .lang a:hover { color: #fff; }
+
+    .burger { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; }
+    .burger span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative; min-height: 92vh;
+      display: flex; align-items: center;
+      background: url('slike/hero-trg.jpg') center 35% / cover no-repeat;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(100deg, rgba(20,42,70,0.92) 0%, rgba(20,42,70,0.72) 45%, rgba(29,58,95,0.45) 100%);
+    }
+    .hero-sadrzaj { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 8rem 2rem 4rem; width: 100%; }
+    .hero .nadnaslov {
+      color: var(--zlatna); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; color: #fff;
+      font-size: clamp(2.4rem, 5.4vw, 4.2rem); font-weight: 700; line-height: 1.12;
+      max-width: 15ch; margin-bottom: 1.5rem;
+    }
+    .hero p { color: rgba(255,255,255,0.85); font-size: 1.05rem; font-weight: 300; max-width: 52ch; margin-bottom: 2.4rem; }
+
+    .btn {
+      display: inline-block; text-decoration: none; font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.05em; padding: 0.9rem 2.1rem; border-radius: 4px; transition: all 0.25s;
+    }
+    .btn-puni { background: var(--zlatna); color: var(--navy-dark); }
+    .btn-puni:hover { background: #d4b671; transform: translateY(-2px); }
+    .btn-obrub { border: 1px solid rgba(255,255,255,0.5); color: #fff; margin-left: 0.8rem; }
+    .btn-obrub:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    /* ---------- SECTIONS ---------- */
+    section { padding: 6rem 0; }
+    .nadnaslov-s {
+      color: var(--zlatna); font-size: 0.74rem; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.9rem;
+    }
+    h2.naslov-s {
+      font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+      font-weight: 600; color: var(--navy-dark); line-height: 1.2; margin-bottom: 1.2rem;
+    }
+    .uvod-s { color: var(--siva); max-width: 62ch; }
+
+    /* ---------- ABOUT ---------- */
+    .o-meni-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; align-items: start; }
+    .o-meni-slika { position: relative; }
+    .o-meni-slika img { width: 100%; border-radius: 6px; box-shadow: 0 24px 60px rgba(20,42,70,0.18); }
+    .o-meni-slika::after {
+      content: ''; position: absolute; top: 1.4rem; left: -1.4rem; right: 1.4rem; bottom: -1.4rem;
+      border: 1px solid var(--zlatna); border-radius: 6px; z-index: -1;
+    }
+    .o-meni-tekst p { margin-bottom: 1.1rem; color: var(--tekst); font-weight: 300; }
+    .o-meni-tekst p strong { font-weight: 600; }
+
+    .citat {
+      margin: 2rem 0; padding: 1.4rem 1.8rem; border-left: 3px solid var(--zlatna);
+      background: var(--navy-soft); border-radius: 0 6px 6px 0;
+    }
+    .citat em { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy); }
+    .citat span { display: block; font-size: 0.8rem; color: var(--siva); margin-top: 0.4rem; }
+
+    .iskustvo { margin-top: 2.2rem; }
+    .iskustvo h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy-dark); margin-bottom: 1.2rem;
+    }
+    .isk-red { display: grid; grid-template-columns: 150px 1fr; gap: 1.2rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+    .isk-red:last-child { border-bottom: none; }
+    .isk-god { font-size: 0.82rem; font-weight: 600; color: var(--zlatna); letter-spacing: 0.03em; padding-top: 0.1rem; }
+    .isk-red div:last-child { font-size: 0.92rem; }
+
+    /* ---------- PRACTICE AREAS ---------- */
+    .grane { background: var(--navy-dark); color: #fff; }
+    .grane .naslov-s { color: #fff; }
+    .grane .uvod-s { color: rgba(255,255,255,0.7); }
+    .grane-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem; margin-top: 3rem; }
+    .grana {
+      padding: 0 0 1.8rem; border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .grana h3 {
+      display: flex; align-items: center; gap: 0.9rem;
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.7rem;
+    }
+    .grana p { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.72); }
+    .grana .napomena { display: block; margin-top: 0.5rem; font-size: 0.85rem; font-weight: 500; color: var(--zlatna); }
+    .grana .tocka { width: 8px; height: 8px; background: var(--zlatna); transform: rotate(45deg); flex-shrink: 0; }
+
+    /* ---------- SERVICES ---------- */
+    .usluge { background: var(--svjetlo); }
+    .usluge-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; margin-top: 3rem; }
+    .usluga {
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 2.2rem 2.2rem 2rem; transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .usluga::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 3rem; height: 3px;
+      background: var(--zlatna); transition: width 0.35s;
+    }
+    .usluga:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(20,42,70,0.10); }
+    .usluga:hover::before { width: 100%; }
+    .usluga h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--navy-dark); margin-bottom: 1rem; }
+    .usluga p { font-size: 0.9rem; color: var(--siva); font-weight: 300; }
+    .usluga .istaknuto {
+      display: inline-block; margin-top: 1.1rem; font-size: 0.8rem; font-weight: 600;
+      color: var(--navy); background: var(--navy-soft); padding: 0.35rem 0.8rem; border-radius: 4px;
+    }
+    .usluga.siroka { grid-column: 1 / -1; }
+
+    /* ---------- PACKAGES ---------- */
+    .paketi-uvod { max-width: 640px; }
+    .paketi-uvod ul { list-style: none; margin-top: 1.4rem; }
+    .paketi-uvod li { padding: 0.4rem 0 0.4rem 1.8rem; position: relative; font-weight: 300; }
+    .paketi-uvod li::before { content: '—'; position: absolute; left: 0; color: var(--zlatna); font-weight: 600; }
+
+    .paketi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 3rem; align-items: stretch; }
+    .paket {
+      background: #fff; border: 1px solid var(--border); border-radius: 10px;
+      padding: 2.4rem 2rem 2.2rem; display: flex; flex-direction: column; position: relative; transition: all 0.3s;
+    }
+    .paket:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(20,42,70,0.12); }
+    .paket.popularan { background: var(--navy-dark); border-color: var(--navy-dark); color: #fff; }
+    .paket .badge {
+      position: absolute; top: -0.8rem; left: 50%; transform: translateX(-50%);
+      background: var(--zlatna); color: var(--navy-dark); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 20px;
+    }
+    .paket h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1.3rem; color: var(--navy-dark); }
+    .paket.popularan h3 { color: #fff; }
+    .paket ul { list-style: none; flex: 1; margin-bottom: 1.8rem; }
+    .paket li { padding: 0.45rem 0 0.45rem 1.7rem; position: relative; font-size: 0.88rem; font-weight: 300; }
+    .paket li::before { content: '✓'; position: absolute; left: 0; color: var(--zlatna); font-weight: 700; }
+    .paket .btn { text-align: center; }
+    .paket .btn-navy { background: var(--navy); color: #fff; }
+    .paket .btn-navy:hover { background: var(--navy-dark); }
+    .paket.popularan .btn-navy { background: var(--zlatna); color: var(--navy-dark); }
+    .paket.popularan .btn-navy:hover { background: #d4b671; }
+
+    .zasto-naslov { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--navy-dark); margin-top: 3.4rem; }
+    .zasto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 1.4rem; }
+    .zasto {
+      padding: 1.8rem; background: var(--navy-soft); border-radius: 8px;
+    }
+    .zasto h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy-dark); margin-bottom: 0.5rem; }
+    .zasto p { font-size: 0.87rem; color: var(--siva); font-weight: 300; }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .preporuke { background: var(--svjetlo); }
+    .prep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 3rem; }
+    .prep {
+      background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 2.2rem 2rem;
+      display: flex; flex-direction: column;
+    }
+    .prep .navodnik { font-family: 'Playfair Display', serif; font-size: 3.2rem; line-height: 1; color: var(--zlatna); margin-bottom: 0.6rem; }
+    .prep p { font-size: 0.88rem; font-weight: 300; font-style: italic; color: var(--tekst); flex: 1; }
+    .prep .autor { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+    .prep .autor .ime { font-weight: 600; font-size: 0.92rem; color: var(--navy-dark); }
+    .prep .autor .titula { font-size: 0.78rem; color: var(--siva); }
+    .prep-izvor { text-align: center; margin-top: 2rem; font-size: 0.8rem; color: var(--siva); }
+
+    /* ---------- CLIENTS ---------- */
+    .klijenti { padding: 4.5rem 0; border-top: 1px solid var(--border); }
+    .klijenti .naslov-s { text-align: center; }
+    .klijenti .nadnaslov-s { text-align: center; }
+    .traka-omot { overflow: hidden; margin-top: 2.8rem; position: relative; }
+    .traka-omot::before, .traka-omot::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+    }
+    .traka-omot::before { left: 0; background: linear-gradient(to right, #fff, transparent); }
+    .traka-omot::after { right: 0; background: linear-gradient(to left, #fff, transparent); }
+    .traka { display: flex; align-items: center; gap: 5rem; width: max-content; animation: klizi 40s linear infinite; }
+    @keyframes klizi {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+    .traka img {
+      height: 44px; width: auto; max-width: 170px; object-fit: contain;
+      filter: grayscale(1) opacity(0.6); transition: filter 0.3s;
+    }
+    .traka img:hover { filter: grayscale(0) opacity(1); }
+
+    /* ---------- CONTACT ---------- */
+    .kontakt { background: var(--navy-dark); color: #fff; }
+    .kontakt .naslov-s { color: #fff; }
+    .kontakt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 1rem; }
+    .kontakt-info { margin-top: 2rem; display: grid; gap: 1.4rem; }
+    .k-stavka { border-left: 2px solid var(--zlatna); padding-left: 1.2rem; }
+    .k-stavka .vrijednost { font-size: 1.05rem; font-weight: 500; }
+    .k-stavka .vrijednost a { color: #fff; text-decoration: none; }
+    .k-stavka .vrijednost a:hover { color: var(--zlatna); }
+    .k-stavka .oznaka { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+
+    form { display: grid; gap: 1rem; }
+    .polja-red { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    input, textarea {
+      width: 100%; padding: 0.9rem 1.1rem; border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06); border-radius: 5px; color: #fff;
+      font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: border-color 0.2s;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.45); }
+    input:focus, textarea:focus { outline: none; border-color: var(--zlatna); }
+    textarea { min-height: 140px; resize: vertical; }
+    form .btn-puni { border: none; cursor: pointer; font-family: 'Inter', sans-serif; justify-self: start; }
+
+    .mapa { margin-top: 3.5rem; border-radius: 8px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+    .mapa iframe { display: block; width: 100%; height: 380px; border: 0; }
+
+    /* ---------- FOOTER ---------- */
+    footer { background: #0e1f33; color: rgba(255,255,255,0.55); padding: 2.2rem 0; font-size: 0.8rem; }
+    .footer-inner { max-width: 1180px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-brand { display: flex; align-items: center; gap: 0.7rem; }
+    .footer-brand img { width: 34px; height: 34px; background: #fff; border-radius: 50%; padding: 2px; }
+
+    /* ---------- ANIMATIONS ---------- */
+    .otkrij { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .otkrij.vidljivo { opacity: 1; transform: none; }
+
+    /* ---------- QUICK CONTACT (fixed icons) ---------- */
+    .brzi-kontakt {
+      position: fixed; right: 1.2rem; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 0.7rem; z-index: 150;
+    }
+    .bk-btn {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 18px rgba(20,42,70,0.35); transition: all 0.25s;
+    }
+    .bk-btn:hover { background: var(--zlatna); color: var(--navy-dark); transform: translateY(-2px); }
+    .bk-btn svg { width: 20px; height: 20px; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 960px) {
+      .brzi-kontakt { top: auto; bottom: 1.1rem; right: 1rem; transform: none; }
+      .bk-btn { width: 42px; height: 42px; }
+      .bk-btn svg { width: 18px; height: 18px; }
+      .o-meni-grid, .kontakt-grid { grid-template-columns: 1fr; gap: 2.6rem; }
+      .usluge-grid, .prep-grid, .paketi-grid, .zasto-grid { grid-template-columns: 1fr; }
+      .grane-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .grana { order: var(--m); }
+      .paket.popularan { order: -1; }
+      nav.glavni {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--navy-dark); flex-direction: column; padding: 1rem 2rem 1.4rem; gap: 0.4rem;
+      }
+      nav.glavni.otvoren { display: flex; }
+      .burger { display: block; }
+      .brand { min-width: 0; }
+      .brand-text { min-width: 0; overflow: hidden; }
+      .brand-text .naziv { font-size: 0.88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+      .brand-text .pod { display: none; }
+      .brand img { width: 38px; height: 38px; flex-shrink: 0; }
+    }
+    @media (max-width: 560px) {
+      .polja-red { grid-template-columns: 1fr; }
+      .btn-obrub { margin-left: 0; margin-top: 0.8rem; }
+      .isk-red { grid-template-columns: 1fr; gap: 0.1rem; }
+      .nav-inner { padding: 0.55rem 1rem; gap: 0.6rem; }
+      .nav-desno { gap: 0.7rem; }
+      .brand { gap: 0.5rem; flex-shrink: 0; }
+      .brand-text { overflow: visible; }
+      .brand-text .naziv {
+        white-space: normal; overflow: visible; text-overflow: clip;
+        font-size: 0.76rem; line-height: 1.2; max-width: 120px; display: block;
+      }
+      .lang a { padding: 0.2rem 0.35rem; font-size: 0.66rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="#pocetna">
+      <img src="slike/babic-logo.png" alt="Law Office Babić" />
+      <span class="brand-text">
+        <span class="naziv">Law Office Babić</span>
+      </span>
+    </a>
+    <div class="nav-desno">
+      <nav class="glavni" id="glavniNav">
+        <a href="#o-meni">About</a>
+        <a href="#grane-prava">Practice Areas</a>
+        <a href="#usluge">Services</a>
+        <a href="#paketi">Packages</a>
+        <a href="#preporuke">Testimonials</a>
+        <a href="#kontakt">Contact</a>
+      </nav>
+      <div class="lang">
+        <a href="index.html">HR</a>
+        <a href="index-en.html" class="active">EN</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="brzi-kontakt">
+  <a class="bk-btn" href="tel:+385958037553" aria-label="Call us: +385 95 80 37 553" title="+385 95 80 37 553">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+  <a class="bk-btn" href="mailto:office@marijanababic.com" aria-label="Send us an e-mail" title="office@marijanababic.com">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  </a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="pocetna">
+  <div class="hero-sadrzaj">
+    <div class="nadnaslov">Law Office Babić · Zagreb, Croatia</div>
+    <h1>Your Trusted Legal Partner</h1>
+    <p>Legal services for domestic and foreign clients in the area of corporate law, finance, restructuring and representation before the court of law, in arbitral disputes and conciliation and mediation proceedings.</p>
+    <a class="btn btn-puni" href="#kontakt">Contact us</a>
+    <a class="btn btn-obrub" href="#o-meni">Learn more</a>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="o-meni">
+  <div class="container">
+    <div class="o-meni-grid">
+      <div class="o-meni-slika otkrij">
+        <img src="slike/slika-figura.jpg" alt="Attorney Marijana Babić in her office" />
+      </div>
+      <div class="o-meni-tekst otkrij">
+        <div class="nadnaslov-s">About us</div>
+        <h2 class="naslov-s">Marijana Babić</h2>
+        <p>Marijana is a licensed Croatian Attorney-at-Law with 15 years of professional legal experience in working with leading international law firms. Marijana is providing assistance by counselling market leaders and natural persons in all matters.</p>
+        <p>She advises businesses in all aspects of statutory and corporate issues, compliance issues and regulatory, including due diligence, competition, day-to-day corporate issues. Also, general finance and tax issues, employment contracts, commercial contracts, investment agreements, SPA, SHA, company transformations, as well as in sectors such as e-commerce technologies, privacy policies, e-commerce agreements, confidentiality agreements and GDPR.</p>
+        <div class="citat">
+          <em>“Quality is not an act, it is a habit.”</em>
+          <span>— Aristotle</span>
+        </div>
+        <div class="iskustvo">
+          <h3>Experience</h3>
+          <div class="isk-red"><div class="isk-god">9/2021 — now</div><div>Law Office Babić, Attorney</div></div>
+          <div class="isk-red"><div class="isk-god">6/2022 — now</div><div>Licensed Insolvency Trustee at Commercial Court, list A as of 2022</div></div>
+          <div class="isk-red"><div class="isk-god">5/2014 — 9/2021</div><div>BENKO &amp; PARTNERS LLC, Zagreb, Attorney</div></div>
+          <div class="isk-red"><div class="isk-god">9/2006 — 12/2012</div><div>Law Firm Gugić, Kovačić &amp; Krivić LLC, Zagreb, Associate / Attorney</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRACTICE AREAS ================= -->
+<section class="grane" id="grane-prava">
+  <div class="container">
+    <div class="nadnaslov-s">What we do</div>
+    <h2 class="naslov-s">Practice Areas</h2>
+    <p class="uvod-s">Legal support for your business in all key areas — from incorporation and day-to-day operations to complex transactions and restructuring.</p>
+    <div class="grane-grid">
+      <div class="grana otkrij" style="--m:1">
+        <h3><span class="tocka"></span>Company Law</h3>
+        <p>Changes in corporate status, mergers and acquisitions, due diligence, investments in companies and purchase and sale of shares, liquidation, company representation, contract law, regulatory matters, debt collection.</p>
+      </div>
+      <div class="grana otkrij" style="--m:5">
+        <h3><span class="tocka"></span>Employment Law</h3>
+        <p>Labour disputes, employment and managerial contracts, drafting of work regulations, obtaining work permits.</p>
+      </div>
+      <div class="grana otkrij" style="--m:2">
+        <h3><span class="tocka"></span>Banking and Finance</h3>
+        <p>Advisory on financial products, financing of investments and asset acquisitions, project finance, risk insurance.</p>
+      </div>
+      <div class="grana otkrij" style="--m:6">
+        <h3><span class="tocka"></span>Energy Law</h3>
+        <p>Renewable energy projects (small and medium-scale).</p>
+      </div>
+      <div class="grana otkrij" style="--m:3">
+        <h3><span class="tocka"></span>Data Protection</h3>
+        <p>EU General Data Protection Regulation 2016/679 (2018).</p>
+      </div>
+      <div class="grana otkrij" style="--m:7">
+        <h3><span class="tocka"></span>Real Property Law</h3>
+        <p>Land registry matters, acquisition and sale of real estate, lease / rental.</p>
+      </div>
+      <div class="grana otkrij" style="--m:4">
+        <h3><span class="tocka"></span>Bankruptcy Proceedings and Debtor Restructuring</h3>
+        <p>Representation of creditors in bankruptcy proceedings, filing of creditors' claims in bankruptcy and initiation of litigation, proceedings for contesting the debtor's legal actions. Debtor restructuring and filing of proposals for the opening of pre-bankruptcy proceedings, representation of debtors and creditors in pre-bankruptcy proceedings, drafting of the Restructuring Plan.<span class="napomena">Marijana Babić is a licensed Bankruptcy Trustee and possesses specialist knowledge in this area.</span></p>
+      </div>
+      <div class="grana otkrij" style="--m:8">
+        <h3><span class="tocka"></span>Family Law</h3>
+        <p>Divorce proceedings, marital agreements, division of matrimonial property, parental care and child support, joint parental care plans.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="usluge" id="usluge">
+  <div class="container">
+    <div class="nadnaslov-s">Services</div>
+    <h2 class="naslov-s">Trusted Legal Services</h2>
+    <p class="uvod-s">A detailed overview of the areas in which the office provides advisory and representation services.</p>
+    <div class="usluge-grid">
+      <div class="usluga otkrij">
+        <h3>Corporate and Company Law</h3>
+        <p>company formation • changes in status • regulation of relations between company members • regular advisory services in day-to-day operations • negotiations and drafting of agreements • advisory on sector regulations • restructuring • liquidation</p>
+      </div>
+      <div class="usluga otkrij">
+        <h3>Mergers &amp; Acquisitions</h3>
+        <p>due diligence • structuring of transactions • drafting of transaction documents • negotiations • mergers • contracts on the purchase and transfer of shares • shareholder agreements and articles of association • joint ventures • squeeze-out</p>
+      </div>
+      <div class="usluga otkrij">
+        <h3>Bankruptcy and Restructuring</h3>
+        <p>advisory in corporate restructuring • bankruptcy proceedings • pre-bankruptcy settlement proceedings • extraordinary administration proceedings • representation of creditors • application of creditors' requests • start of proceedings</p>
+        <span class="istaknuto">Marijana Babić is a licensed Bankruptcy Trustee</span>
+      </div>
+      <div class="usluga otkrij">
+        <h3>Energy Law</h3>
+        <p>development of energy projects • renewables • permits for energy projects • legal analysis of the regulatory status of energy projects • advisory on regulatory issues • representation in proceedings before regulatory bodies (HERA)</p>
+      </div>
+      <div class="usluga siroka otkrij">
+        <h3>IT and Startup Companies</h3>
+        <p>incorporation of companies • relations between shareholders • investor relations • labour law advice • employee stock ownership • intellectual property protection • general operating conditions • service agreements and other commercial agreements • data protection</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PACKAGES ================= -->
+<section id="paketi">
+  <div class="container">
+    <div class="paketi-uvod">
+      <div class="nadnaslov-s">Make an inquiry</div>
+      <h2 class="naslov-s">Solve your legal problem now</h2>
+      <ul>
+        <li>Online legal advice, opinions, documents and meetings</li>
+        <li>Monthly subscription for legal entities</li>
+        <li>Conducting disputes with prior consultation</li>
+        <li>Responses to inquiries within 24 hours</li>
+      </ul>
+    </div>
+
+    <div class="paketi-grid">
+      <div class="paket otkrij">
+        <h3>Basic package</h3>
+        <ul>
+          <li>up to 10 hours of monthly work by one office employee</li>
+          <li>legal advice via e-mail and video call</li>
+          <li>review of documentation</li>
+          <li>drawing up contracts and documents</li>
+        </ul>
+        <a class="btn btn-navy" href="#kontakt">Contact us</a>
+      </div>
+      <div class="paket otkrij">
+        <h3>Medium package</h3>
+        <ul>
+          <li>up to 40 hours of monthly work by office employees</li>
+          <li>everything from the basic package</li>
+          <li>arrivals at your premises and on-site work</li>
+          <li>outsourcing of legal affairs and legal services</li>
+        </ul>
+        <a class="btn btn-navy" href="#kontakt">Contact us</a>
+      </div>
+      <div class="paket popularan otkrij">
+        <div class="badge">Popular</div>
+        <h3>Unlimited package</h3>
+        <ul>
+          <li>over 40 hours per month and the number of employees available according to agreement</li>
+          <li>everything from the basic and medium package</li>
+          <li>performance of all tasks and orders at the client's request</li>
+          <li>unlimited representation in all matters</li>
+        </ul>
+        <a class="btn btn-navy" href="#kontakt">Contact us</a>
+      </div>
+    </div>
+
+    <h3 class="zasto-naslov otkrij">Why subscribe:</h3>
+    <div class="zasto-grid">
+      <div class="zasto otkrij">
+        <h4>Fixed monthly cost</h4>
+        <p>If you have a constant need for legal services, you can pay a predictable fixed monthly cost by subscription.</p>
+      </div>
+      <div class="zasto otkrij">
+        <h4>Constant support</h4>
+        <p>As a subscriber, you have the right to continuous legal support at all times.</p>
+      </div>
+      <div class="zasto otkrij">
+        <h4>Lower overall costs</h4>
+        <p>By subscribing to our services, you will save significantly compared to the cost of hiring a lawyer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="preporuke" id="preporuke">
+  <div class="container">
+    <div class="nadnaslov-s">Testimonials</div>
+    <h2 class="naslov-s">What clients and colleagues say</h2>
+    <div class="prep-grid">
+      <div class="prep otkrij">
+        <div class="navodnik">“</div>
+        <p>Marijana assisted the AX Group with a possible transaction in Croatia in 2018. Throughout the process Marijana was proactive, professional and provided us with sound legal advice and support. We would certainly engage Ms Babic again in a future venture.</p>
+        <div class="autor">
+          <div class="ime">Michael Warrington</div>
+          <div class="titula">Chief Executive Officer, AX Group</div>
+        </div>
+      </div>
+      <div class="prep otkrij">
+        <div class="navodnik">“</div>
+        <p>Highly professional, very expedient in services provided. Absolutely appreciative of her guidance, leadership and expertise. Would recommend Marijana to anyone seeking that extra mile!</p>
+        <div class="autor">
+          <div class="ime">Mathew Conway</div>
+          <div class="titula">Director</div>
+        </div>
+      </div>
+      <div class="prep otkrij">
+        <div class="navodnik">“</div>
+        <p>I have been working with Marijana for six years. She often represented very creative and logical solutions to the legal problems. Her reasons supporting the ideas how to solve the problem were very convincing and always led to a solution. Strong work ethics and dedication result in, not only finishing the work in time, but finishing it before all required deadlines.</p>
+        <div class="autor">
+          <div class="ime">Damjan Krivić</div>
+          <div class="titula">Partner, Gugić, Kovačić &amp; Krivić Law Firm</div>
+        </div>
+      </div>
+    </div>
+    <div class="prep-izvor">Testimonials are taken from LinkedIn and shown in their original form.</div>
+  </div>
+</section>
+
+<!-- ================= CLIENTS ================= -->
+<section class="klijenti" id="klijenti">
+  <div class="container">
+    <div class="nadnaslov-s">References</div>
+    <h2 class="naslov-s" style="text-align:center;">Satisfied Clients</h2>
+  </div>
+  <div class="traka-omot">
+    <div class="traka">
+      <img src="logotipi/axgroup.png" alt="AX Group" />
+      <img src="logotipi/snipes.svg" alt="Snipes" />
+      <img src="logotipi/newyorker.svg" alt="New Yorker" />
+      <img src="logotipi/klubben.png" alt="Klubben" />
+      <img src="logotipi/naturhouse.png" alt="Naturhouse" />
+      <img src="logotipi/consilio-dark.svg" alt="Consilio" />
+      <img src="logotipi/oslglobal.png" alt="OSL Global" />
+      <img src="logotipi/leluba.png" alt="Leluba" />
+      <img src="logotipi/metalbeneton.png" alt="Metal Beneton" />
+      <img src="logotipi/axgroup.png" alt="AX Group" />
+      <img src="logotipi/snipes.svg" alt="Snipes" />
+      <img src="logotipi/newyorker.svg" alt="New Yorker" />
+      <img src="logotipi/klubben.png" alt="Klubben" />
+      <img src="logotipi/naturhouse.png" alt="Naturhouse" />
+      <img src="logotipi/consilio-dark.svg" alt="Consilio" />
+      <img src="logotipi/oslglobal.png" alt="OSL Global" />
+      <img src="logotipi/leluba.png" alt="Leluba" />
+      <img src="logotipi/metalbeneton.png" alt="Metal Beneton" />
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="kontakt" id="kontakt">
+  <div class="container">
+    <div class="nadnaslov-s">Contact</div>
+    <h2 class="naslov-s">Make an inquiry</h2>
+    <div class="kontakt-grid">
+      <div>
+        <p style="color: rgba(255,255,255,0.75); font-weight: 300;">Get in touch with confidence — we respond to inquiries within 24 hours.</p>
+        <div class="kontakt-info">
+          <div class="k-stavka">
+            <div class="vrijednost"><a href="tel:+385958037553">+385 95 80 37 553</a></div>
+            <div class="oznaka">Mobile</div>
+          </div>
+          <div class="k-stavka">
+            <div class="vrijednost"><a href="mailto:office@marijanababic.com">office@marijanababic.com</a></div>
+            <div class="oznaka">E-mail</div>
+          </div>
+          <div class="k-stavka">
+            <div class="vrijednost"><a href="https://www.google.com/maps/search/?api=1&query=Ilica+5%2FII%2C+Zagreb" target="_blank" rel="noopener">Ilica 5/II, Zagreb, Croatia</a></div>
+            <div class="oznaka">Address</div>
+          </div>
+        </div>
+      </div>
+      <form id="upitForma">
+        <div class="polja-red">
+          <input type="text" id="ime" placeholder="Full name" required />
+          <input type="email" id="email" placeholder="Your e-mail address" required />
+        </div>
+        <input type="text" id="predmet" placeholder="Subject" />
+        <textarea id="poruka" placeholder="Describe your legal problem or inquiry" required></textarea>
+        <button type="submit" class="btn btn-puni">Send inquiry</button>
+      </form>
+    </div>
+    <div class="mapa">
+      <iframe src="https://www.google.com/maps?q=Ilica+5,+Zagreb,+Croatia&output=embed&hl=en" title="Map — Ilica 5/II, Zagreb" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="slike/babic-logo.png" alt="Law Office Babić" />
+      <div>© 2026 Law Office Babić, Zagreb · All rights reserved</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const promatrac = new IntersectionObserver((unosi) => {
+    unosi.forEach(u => { if (u.isIntersecting) { u.target.classList.add('vidljivo'); promatrac.unobserve(u.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.otkrij').forEach(el => promatrac.observe(el));
+
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('glavniNav');
+  burger.addEventListener('click', () => nav.classList.toggle('otvoren'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('otvoren')));
+
+  document.getElementById('upitForma').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const ime = document.getElementById('ime').value;
+    const email = document.getElementById('email').value;
+    const predmet = document.getElementById('predmet').value || 'Website inquiry';
+    const poruka = document.getElementById('poruka').value;
+    const tijelo = encodeURIComponent(poruka + '\n\n— ' + ime + ' (' + email + ')');
+    window.location.href = 'mailto:office@marijanababic.com?subject=' + encodeURIComponent(predmet) + '&body=' + tijelo;
+  });
+</script>
+
+</body>
+</html>
