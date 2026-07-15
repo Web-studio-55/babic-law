@@ -236,6 +236,25 @@
     .prep .autor .titula { font-size: 0.78rem; color: var(--siva); }
     .prep-izvor { text-align: center; margin-top: 2rem; font-size: 0.8rem; color: var(--siva); }
 
+    /* ---------- NEWS ---------- */
+    .novosti-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; margin-top: 3rem; }
+    .novost {
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 2.2rem 2.2rem 2rem; transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .novost::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 3rem; height: 3px;
+      background: var(--zlatna); transition: width 0.35s;
+    }
+    .novost:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(20,42,70,0.10); }
+    .novost:hover::before { width: 100%; }
+    .novost .datum { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--zlatna); margin-bottom: 0.7rem; }
+    .novost h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--navy-dark); margin-bottom: 1rem; }
+    .novost p { font-size: 0.92rem; color: var(--siva); font-weight: 300; margin-bottom: 1rem; }
+    .novost a { color: var(--navy); font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+    .novost a:hover { color: var(--zlatna); }
+    @media (max-width: 960px) { .novosti-grid { grid-template-columns: 1fr; } }
+
     /* ---------- CLIENTS ---------- */
     .klijenti { padding: 4.5rem 0; border-top: 1px solid var(--border); }
     .klijenti .naslov-s { text-align: center; }
@@ -362,6 +381,7 @@
         <a href="#usluge">Services</a>
         <a href="#paketi">Packages</a>
         <a href="#preporuke">Testimonials</a>
+        <a href="#novosti">News</a>
         <a href="#kontakt">Contact</a>
       </nav>
       <div class="lang">
@@ -596,6 +616,22 @@
       </div>
     </div>
     <div class="prep-izvor">Testimonials are taken from LinkedIn and shown in their original form.</div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section id="novosti">
+  <div class="container">
+    <div class="nadnaslov-s">News</div>
+    <h2 class="naslov-s">Latest from the Office</h2>
+    <div class="novosti-grid">
+      <div class="novost otkrij">
+        <div class="datum">July 2026</div>
+        <h3>ESG Regulation for Legal Entities</h3>
+        <p>ESG reporting obligations in the European Union are gradually extending to an ever wider circle of companies. The Corporate Sustainability Reporting Directive (CSRD) introduces the obligation to disclose information on environmental, social and governance factors, accompanied by new value-chain due diligence rules. We advise legal entities to assess their obligations in good time, align their internal acts and prepare their reporting systems.</p>
+        <a href="#kontakt">Find out what ESG regulation means for your company →</a>
+      </div>
+    </div>
   </div>
 </section>
 
