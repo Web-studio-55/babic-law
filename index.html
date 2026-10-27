@@ -297,9 +297,13 @@
 
     /* ---------- ISPIS ---------- */
     @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
       .otkrij { opacity: 1 !important; transform: none !important; }
       header, .brzi-kontakt { position: static; }
+      .brzi-kontakt { display: none; }
       .hero { min-height: auto; padding: 3rem 0; }
+      section { padding: 2.5rem 0; }
+      .hero, .grane, .kontakt, footer { break-inside: avoid-page; }
     }
   </style>
 </head>
